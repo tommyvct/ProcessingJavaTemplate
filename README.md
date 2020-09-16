@@ -1,14 +1,61 @@
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+- `src/`: the folder to maintain sources
+- `lib/`: the folder to maintain Processing dependencies
+- `.classpath`: tells Visual Studio Code or eclipse where the processing dependencies is.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## How processing turn `.pde` files into java code
 
-## Dependency Management
+``` java
+import processing.core.*;
+import processing.data.*;
+import processing.event.*;
+import processing.opengl.*;
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+public class App extends PApplet 
+{
+    static public void main(String[] passedArgs) 
+    {
+        String[] appletArgs = new String[] { "App" };
+
+        if (passedArgs != null) {
+          PApplet.main(concat(appletArgs, passedArgs));
+        } 
+        else 
+        {
+          PApplet.main(appletArgs);
+        }
+    }
+
+    // pde file 1, contains settings, setup and draw function
+    int globalVar = 0;
+
+    public void settings() 
+    {
+        size(640, 640, P3D);
+    }
+
+    public void setup() 
+    {
+    }
+
+    public void draw() 
+    {
+    }
+
+    class inPDEFile1
+    {
+        int i;
+    }
+
+    // all methods are appended with access modifier (public, private, etc...)
+    public void methodInPDEFile1()
+    {
+    }
+    // pde file 2
+    // pde file 3
+    // pde file 4
+    // pde file 5
+    // more pde file...
+}
+```
