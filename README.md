@@ -1,3 +1,9 @@
+## Getting Started
+
+1. Download [Processing](https://processing.org/).
+2. Copy everything under `core/library/` from processing into `lib/` folder.
+3. Drag this folder into Visual Studio Code or open it using Eclipse.
+
 ## Folder Structure
 
 - `src/`: the folder to maintain sources
